@@ -1,0 +1,308 @@
+	#include <iostream>
+#include <stdio.h>
+#include <strings.h>
+#include <conio.h>
+int main()
+{
+    int opc;
+    menu:
+         printf("\t\nDigite:\n");
+         printf("1 - Para salvar no arquivo 1\n");
+         printf("2 - Para salvar no arquivo 2\n");
+         printf("3 - Para buscar em arquivos\n");
+         printf("4 - Para sair\n");
+         scanf("%d",&opc);
+         switch (opc)
+         {
+                case 1:
+                     goto cadastro1;
+                     break;
+                case 2:
+                     goto cadastro2;
+                     break;
+                case 3:
+                goto busca;
+                break;
+                case 4:
+                     printf("\nate mais\n");
+                     system("PAUSE");
+                     exit(1);
+                     
+                
+                break;
+                default:
+                        printf("Digite apenas 1,2,3 ou 4");
+                        goto menu;
+                        break;
+         }
+                     
+         
+         
+cadastro1:
+FILE *arquivo1;
+struct cad1
+ {
+       char nome[20];
+       char endereco[30];
+       char telefone[8];
+ }cad1;
+ 
+ 
+ 
+     
+     char bla[3];
+     int salva;
+     printf("\n\tPrimeiro cadastro de qualquer coisa pressione ente para iniciar\n");
+     
+           
+           gets(bla);
+           printf("Informe o nome\n");
+           gets(cad1.nome);
+           printf("Informe o endereco de %s\n",cad1.nome);
+           gets(cad1.endereco);
+           printf("Informe o telefone de %s\n",cad1.nome);
+           gets(cad1.telefone);
+           system("cls");
+           printf("Dados em memoria:\n");
+           printf("Nome:%s\n",cad1.nome);
+           printf("Endereco:%s\n",cad1.endereco);
+           printf("Telefone:%s\n\n",cad1.telefone);
+           
+           salva:
+           printf("Digite:\n");
+           printf("[1] - para salvar\n");
+           printf("[2] - para descartar\n");
+           scanf("%d",&salva);
+           switch (salva)
+             {
+                  case 1:
+                     arquivo1=fopen("arquivo1.txt","a+");
+                    if (!arquivo1)
+                    {
+     printf("Nao foi possivel abrir o arquivo\n");
+     printf("verifique suas configuracoes e tente novamente\n");
+                 }
+     else
+     {
+         fwrite(&cad1, sizeof(cad1),1,arquivo1);
+     printf("Arquivo salvo com sucesso\n");
+     system("PAUSE");
+      memset (cad1.nome, 0, sizeof (cad1.nome));
+       memset (cad1.endereco, 0, sizeof (cad1.endereco));
+       memset (cad1.telefone, 0, sizeof (cad1.telefone));
+       
+     system("cls");
+     goto menu;
+     }    
+                   break;
+                   case 2:
+       memset (cad1.nome, 0, sizeof (cad1.nome));
+       memset (cad1.endereco, 0, sizeof (cad1.endereco));
+       memset (cad1.telefone, 0, sizeof (cad1.telefone));
+       system("cls");
+                   goto menu;
+                 break;
+                 default:
+                         printf("Digite apenas 1 ou 2\n");
+                         goto salva;
+                         break;
+             }
+       
+           
+       
+       
+    cadastro2:
+       FILE *arquivo2;
+struct cad2
+ {
+       char nome[20];
+       char endereco[30];
+       char cidade [20];
+       char cep[10];
+       char datanasc[8];
+       
+ }cad2;
+ 
+    
+     char blas[3];
+     int salva2;
+     printf("\tSegundo cadastro de qualquer coisa pressione enter para iniciar\n");
+    
+                 
+           gets(blas);
+           printf("Informe o nome\n");
+           gets(cad2.nome);
+           printf("Informe o endereco de %s\n",cad2.nome);
+           gets(cad2.endereco);
+           printf("Informe a data de nascimento de %s\n",cad2.nome);
+           gets(cad2.datanasc);
+           printf("Informe a cidade de %s\n",cad2.nome);
+           gets(cad2.cidade);
+           printf("Informe o CEP de %s\n",cad2.nome);
+           gets(cad2.cep);
+           system("cls");
+           printf("Dados em memoria:\n");
+           printf("Nome:%s\n",cad2.nome);
+           printf("Endereco:%s\n",cad2.endereco);
+           printf("Data de Nascimento:%s\n",cad2.datanasc);
+           printf("Cidade:%s\n",cad2.cidade);
+           printf("CEP:%s\n\n",cad2.cep);
+           
+           salva2:
+           printf("Digite:\n");
+           printf("[1] - para salvar\n");
+           printf("[2] - para descartar\n");
+           scanf("%d",&salva2);
+           switch (salva2)
+             {
+                  case 1:
+                     arquivo2=fopen("arquivo2.txt","a+b\n");
+                    if (!arquivo2)
+                    {
+     printf("Nao foi possivel abrir o arquivo\n");
+     printf("verifique suas configuracoes e tente novamente\n");
+                 }
+     else
+     {
+         fwrite(&cad2, sizeof(cad2),1,arquivo2);
+     printf("Arquivo salvo com sucesso\n");
+     system("PAUSE");
+     system("cls");
+      memset (cad2.nome, 0, sizeof (cad2.nome));
+       memset (cad2.endereco, 0, sizeof (cad2.endereco));
+       memset (cad2.datanasc, 0, sizeof (cad2.datanasc));
+       memset (cad2.cidade, 0, sizeof (cad2.cidade));
+       memset (cad2.cep, 0, sizeof (cad2.cep));
+     goto menu;
+     }    
+                   break;
+                   case 2:
+       memset (cad2.nome, 0, sizeof (cad2.nome));
+       memset (cad2.endereco, 0, sizeof (cad2.endereco));
+       memset (cad2.datanasc, 0, sizeof (cad2.datanasc));
+       memset (cad2.cidade, 0, sizeof (cad2.cidade));
+       memset (cad2.cep, 0, sizeof (cad2.cep));
+                   goto menu;
+                 break;
+                 default:
+                         printf("Digite apenas 1 ou 2\n");
+                         goto salva2;
+                         break;
+             }
+       busca:
+             
+        char  nomep[20];
+        char blass[3];
+        int salva3;
+               FILE *arquivo3;
+struct cad3
+ {
+       char nome[20];
+       char endereco[30];
+       char cidade [20];
+       char cep[10];
+       char datanasc[8];
+       char telefone[8];
+       
+ }cad3;
+        
+       gets(blass);
+    printf("Digite o nome a ser procurado");
+    gets(nomep);
+
+    arquivo2=fopen("arquivo2.txt","r+b");
+    fread(&cad2,sizeof(cad2),1,arquivo2);
+    fseek(arquivo2,0,SEEK_SET);
+    arquivo1=fopen("arquivo1.txt","r+b");
+    fread(&cad1,sizeof(cad1),1,arquivo1);
+    fseek(arquivo1,0,SEEK_SET);
+     
+                                                
+     if ((strcmp(nomep,cad2.nome)==0)&&(strcmp(nomep,cad1.nome)==0))
+      {
+                        printf("Nome encontrado em ambos os arquivos\n");
+                        printf("Dados em arquivo 2:\n");
+                        printf("Nome:%s\n",cad2.nome);
+           printf("Endereco:%s\n",cad2.endereco);
+           printf("Data de Nascimento:%s\n",cad2.datanasc);
+           printf("Cidade:%s\n",cad2.cidade);
+           printf("CEP:%s\n\n",cad2.cep);
+           
+           printf("\nDados em arquivo 1:\n");
+           printf("Nome:%s\n",cad1.nome);
+           printf("Endereco:%s\n",cad1.endereco);
+           printf("Telefone:%s\n\n",cad1.telefone);
+           
+           strcpy(cad3.nome,cad2.nome);
+           strcpy(cad3.endereco,cad2.endereco);
+           strcpy(cad3.datanasc,cad2.datanasc);
+           strcpy(cad3.cidade,cad2.cidade);
+           strcpy(cad3.cep,cad2.cep);
+           strcpy(cad3.telefone,cad1.telefone);
+          salva3:
+           printf("Deseja salvar os dados em arquivo 3?\n");
+           printf("1 - sim  2 - nao");
+           scanf("%d",&salva3);
+           
+           
+           switch (salva3)
+             {
+                  case 1:
+                     arquivo3=fopen("arquivo3.txt","a+b\n");
+                    if (!arquivo3)
+                    {
+     printf("Nao foi possivel abrir o arquivo\n");
+     printf("verifique suas configuracoes e tente novamente\n");
+                 }
+     else
+     {
+         fwrite(&cad3, sizeof(cad3),1,arquivo3);
+     printf("Arquivo salvo com sucesso\n");
+     system("PAUSE");
+     system("cls");
+      memset (cad3.nome, 0, sizeof (cad3.nome));
+       memset (cad3.endereco, 0, sizeof (cad3.endereco));
+       memset (cad3.datanasc, 0, sizeof (cad3.datanasc));
+       memset (cad3.cidade, 0, sizeof (cad3.cidade));
+       memset (cad3.cep, 0, sizeof (cad3.cep));
+       memset (cad3.telefone, 0, sizeof (cad3.telefone));       
+     goto menu;
+     }    
+                   break;
+                   case 2:
+            memset (cad3.nome, 0, sizeof (cad3.nome));
+       memset (cad3.endereco, 0, sizeof (cad3.endereco));
+       memset (cad3.datanasc, 0, sizeof (cad3.datanasc));
+       memset (cad3.cidade, 0, sizeof (cad3.cidade));
+       memset (cad3.cep, 0, sizeof (cad3.cep));
+       memset (cad3.telefone, 0, sizeof (cad3.telefone));  
+                   goto menu;
+                 break;
+                 default:
+                         printf("Digite apenas 1 ou 2\n");
+                         goto salva3;
+                         break;
+             }
+           
+           
+                        system("PAUSE");
+      }
+      else
+      {
+          printf("Nome nao encontrado\n");
+          system("PAUSE");
+          goto menu;
+          system("cls");
+          goto menu;
+                        
+          
+      }
+      
+    
+    
+       
+
+ system("PAUSE>null");
+ return(0);
+}
+

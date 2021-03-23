@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Atividade_Salto {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Qual é o seu nome: \n");
+		String nome = scan.nextLine();  
+		
+		System.out.println("Primeiro salto: \n");
+		double salto1 = scan.nextDouble(); 
+		System.out.println("Segundo salto: \n");
+		double salto2 = scan.nextDouble();
+		System.out.println("Terceiro salto: \n");
+		double salto3 = scan.nextDouble();
+		System.out.println("Quarto salto: \n");
+		double salto4 = scan.nextDouble();
+		System.out.println("Quinto salto: \n");
+		double salto5 = scan.nextDouble();
+		
+		double media = (salto1 + salto2 + salto3 + salto4 + salto5) / 5;
+		
+		System.out.println("Seu nome é " + nome + ", A altura do primeiro salto foi " + salto1 + ", O segundo foi " + salto2 + ", O terceiro foi " + salto3 + ", O quarto foi " + salto4 + ", e o quinto " + salto5);
+	
+	}
+
+}

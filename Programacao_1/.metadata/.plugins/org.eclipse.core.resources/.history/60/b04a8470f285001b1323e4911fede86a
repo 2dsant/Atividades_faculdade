@@ -1,0 +1,21 @@
+
+public class CondicaoIF {
+
+	public static void main(String[] args) {
+		String nome = "maria";
+		String nome2 = "joão";
+		
+// unica condição (IF)
+		if (nome != "maria") {
+			System.out.println("Nome é maria");
+		}
+		else if  (nome2 == "joão") {
+			System.out.println("Nome é joão");
+		}
+		else {
+			System.out.println("Nome não encontrado!");
+		}
+		System.out.println("Fim do código");
+		
+};
+
